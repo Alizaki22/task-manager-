@@ -11,4 +11,19 @@ router.get("/api/tasks", async (req, res) => {
   }
 });
 
+router.post("/api/tasks", async (req, res) => {
+  try {
+    const task = new Task({
+      title: req.body.title,
+      description: req.body.description,
+      status: req.body.status,
+    });
+
+    const savedTask = await task.save();
+    res.status(201).json(savedTask);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
