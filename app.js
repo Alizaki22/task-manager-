@@ -16,6 +16,7 @@ async function fetchAndRenderTasks() {
     });
   } catch (error) {
     console.error('Error fetching tasks:', error);
+    alert('Failed to fetch tasks');
   }
 }
 
@@ -36,21 +37,10 @@ async function handleFormSubmit(event) {
     fetchAndRenderTasks();
   } catch (error) {
     console.error('Error adding task:', error);
+    alert('Failed to add task');
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-}  }    console.error('Error deleting task:', error);  } catch (error) {    fetchAndRenderTasks();    if (!response.ok) throw new Error('Failed to delete task');    });      method: 'DELETE'    const response = await fetch(`/api/tasks/${taskId}`, {  try {async function deleteTask(taskId) {
 async function deleteTask(taskId) {
   try {
     const response = await fetch(`/api/tasks/${taskId}`, {
@@ -60,5 +50,6 @@ async function deleteTask(taskId) {
     fetchAndRenderTasks();
   } catch (error) {
     console.error('Error deleting task:', error);
+    alert('Failed to delete task');
   }
 }
