@@ -38,3 +38,27 @@ async function handleFormSubmit(event) {
     console.error('Error adding task:', error);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+}  }    console.error('Error deleting task:', error);  } catch (error) {    fetchAndRenderTasks();    if (!response.ok) throw new Error('Failed to delete task');    });      method: 'DELETE'    const response = await fetch(`/api/tasks/${taskId}`, {  try {async function deleteTask(taskId) {
+async function deleteTask(taskId) {
+  try {
+    const response = await fetch(`/api/tasks/${taskId}`, {
+      method: 'DELETE'
+    });
+    if (!response.ok) throw new Error('Failed to delete task');
+    fetchAndRenderTasks();
+  } catch (error) {
+    console.error('Error deleting task:', error);
+  }
+}
